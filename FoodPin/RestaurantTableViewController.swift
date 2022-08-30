@@ -70,6 +70,19 @@ class RestaurantTableViewController: UITableViewController {
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .alert)
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let reserveActionHandler = { (action:UIAlertAction!) -> Void in
+            let alertMessage = UIAlertController(title: "Not available yet",
+                                                 message: "Sorry, this feature is not available yet. Please retry later.",
+                                                 preferredStyle: .alert
+            )
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertMessage, animated: true, completion: nil)
+        }
+        let reserveAction = UIAlertAction(title: "Reserve a table", style: .default
+        , handler: reserveActionHandler)
+        optionMenu.addAction(reserveAction)
+        
         optionMenu.addAction(cancelAction)
         // Display the menu
         present(optionMenu, animated: true, completion: nil)
