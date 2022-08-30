@@ -71,10 +71,12 @@ class RestaurantTableViewController: UITableViewController {
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        // Add "Reserve a table" action
         let reserveActionHandler = { (action:UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Not available yet",
-                                                 message: "Sorry, this feature is not available yet. Please retry later.",
-                                                 preferredStyle: .alert
+            let alertMessage = UIAlertController(
+                title: "Not available yet",
+                message: "Sorry, this feature is not available yet. Please retry later.",
+                preferredStyle: .alert
             )
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alertMessage, animated: true, completion: nil)
@@ -82,6 +84,17 @@ class RestaurantTableViewController: UITableViewController {
         let reserveAction = UIAlertAction(title: "Reserve a table", style: .default
         , handler: reserveActionHandler)
         optionMenu.addAction(reserveAction)
+        
+        // Mark as favorite action
+        let favoriteAction = UIAlertAction(
+            title: "Mark as favorite",
+            style: .default,
+            handler: {
+                (action:UIAlertAction!) -> Void in
+                let cell = tableView.cellForRow(at: indexPath)
+                cell?.accessoryType = .checkmark
+        })
+        optionMenu.addAction(favoriteAction)
         
         optionMenu.addAction(cancelAction)
         // Display the menu
