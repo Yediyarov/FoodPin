@@ -19,6 +19,9 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian/ Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee &Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
+    
+    var restaurantIsFavorites = Array(repeating: false, count: 21)
+    
     enum Section {
         case all
     }
@@ -52,7 +55,7 @@ class RestaurantTableViewController: UITableViewController {
                 cell.thumbnailImageView?.image = UIImage(named: self.restaurantNames[indexPath.row])
                 cell.locationLabel?.text = self.restaurantLocations[indexPath.row]
                 cell.typeLabel?.text = self.restaurantTypes[indexPath.row]
-                
+                cell.accessoryType = self.restaurantIsFavorites[indexPath.row] ? .checkmark : .none
                 return cell
                 
             }
@@ -73,6 +76,7 @@ class RestaurantTableViewController: UITableViewController {
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        
         // Add "Reserve a table" action
         let reserveActionHandler = { (action:UIAlertAction!) -> Void in
             let alertMessage = UIAlertController(
@@ -89,8 +93,6 @@ class RestaurantTableViewController: UITableViewController {
             handler: reserveActionHandler
         )
         
-        optionMenu.addAction(reserveAction)
-        
         
         // Mark as favorite action
         
@@ -99,11 +101,16 @@ class RestaurantTableViewController: UITableViewController {
             style: .default,
             handler: {
                 (action:UIAlertAction!) -> Void in
+                
                 let cell = tableView.cellForRow(at: indexPath)
                 cell?.accessoryType = .checkmark
+                
+                self.restaurantIsFavorites[indexPath.row] = true
         })
-        optionMenu.addAction(favoriteAction)
         
+        
+        optionMenu.addAction(favoriteAction)
+        optionMenu.addAction(reserveAction)
         optionMenu.addAction(cancelAction)
         
         // Display the menu
