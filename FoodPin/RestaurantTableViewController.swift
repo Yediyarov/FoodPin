@@ -28,6 +28,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         
         tableView.dataSource = dataSource
         
@@ -72,6 +73,15 @@ class RestaurantTableViewController: UITableViewController {
         
         // Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        
+        
+        if let popoverController = optionMenu.popoverPresentationController {
+            if let cell = tableView.cellForRow(at: indexPath) {
+                popoverController.sourceView = cell
+                popoverController.sourceRect = cell.bounds
+            }
+        }
+        
         
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
