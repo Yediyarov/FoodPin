@@ -66,8 +66,10 @@ class RestaurantTableViewController: UITableViewController {
     
 //    Managing Row Selections by Implementing the Protocol
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         // Create an option menu as an action sheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .alert)
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        
         // Add actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -81,11 +83,17 @@ class RestaurantTableViewController: UITableViewController {
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alertMessage, animated: true, completion: nil)
         }
-        let reserveAction = UIAlertAction(title: "Reserve a table", style: .default
-        , handler: reserveActionHandler)
+        let reserveAction = UIAlertAction(
+            title: "Reserve a table",
+            style: .default,
+            handler: reserveActionHandler
+        )
+        
         optionMenu.addAction(reserveAction)
         
+        
         // Mark as favorite action
+        
         let favoriteAction = UIAlertAction(
             title: "Mark as favorite",
             style: .default,
@@ -97,7 +105,11 @@ class RestaurantTableViewController: UITableViewController {
         optionMenu.addAction(favoriteAction)
         
         optionMenu.addAction(cancelAction)
+        
         // Display the menu
         present(optionMenu, animated: true, completion: nil)
+        
+        // Deselect the row
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

@@ -14,14 +14,15 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var typeLabel: UILabel!
     @IBOutlet var thumbnailImageView: UIImageView!{
         didSet{
-            thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
-            thumbnailImageView.clipsToBounds = true
+//            thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
+//            thumbnailImageView.clipsToBounds = true
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.tintColor = .systemYellow
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
