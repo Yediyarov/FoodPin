@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Traif.jpg",
+      "filename" : "traif.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Traif@2x.jpg",
+      "filename" : "traif@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Traif@3x.jpg",
+      "filename" : "traif@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

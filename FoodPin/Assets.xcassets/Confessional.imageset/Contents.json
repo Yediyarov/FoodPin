@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Confessional.jpg",
+      "filename" : "confessional.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Confessional@2x.jpg",
+      "filename" : "confessional@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Confessional@3x.jpg",
+      "filename" : "confessional@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

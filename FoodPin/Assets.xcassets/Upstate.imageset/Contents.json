@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Upstate.jpg",
+      "filename" : "upstate.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Upstate@2x.jpg",
+      "filename" : "upstate@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Upstate@3x.jpg",
+      "filename" : "upstate@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

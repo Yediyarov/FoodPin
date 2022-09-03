@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Donostia.jpg",
+      "filename" : "donostia.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Donostia@2x.jpg",
+      "filename" : "donostia@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Donostia@3x.jpg",
+      "filename" : "donostia@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

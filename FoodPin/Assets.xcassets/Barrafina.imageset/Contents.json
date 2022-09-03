@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Barrafina.jpg",
+      "filename" : "barrafina.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Barrafina@2x.jpg",
+      "filename" : "barrafina@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Barrafina@3x.jpg",
+      "filename" : "barrafina@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
