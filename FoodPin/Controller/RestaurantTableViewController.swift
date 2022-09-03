@@ -15,7 +15,7 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "Teakha", type: "Tea House", location: "Hong Kong", image: "teakha", isFavorite: false),
         Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Hong Kong", image: "cafeloisl", isFavorite: false),
         Restaurant(name: "Petite Oyster", type: "French", location: "Hong Kong", image: "petiteoyster", isFavorite: false),
-        Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "HongKong", image: "forkee", isFavorite: false),
+        Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "Hong Kong", image: "forkee", isFavorite: false),
         Restaurant(name: "Po's Atelier", type: "Bakery", location: "Hong Kong", image: "posatelier", isFavorite: false),
         Restaurant(name: "Bourke Street Backery", type: "Chocolate", location:"Sydney", image: "bourkestreetbakery", isFavorite: false),
         Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "Sydney", image: "haigh", isFavorite: false),
@@ -23,7 +23,7 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "Upstate", type: "American", location: "New York", image: "upstate", isFavorite: false),
         Restaurant(name: "Traif", type: "American", location: "New York", image: "traif", isFavorite: false),
         Restaurant(name: "Graham Avenue Meats", type: "Breakfast & Brunch", location: "New York", image: "graham", isFavorite: false),
-        Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "NewYork", image: "waffleandwolf", isFavorite: false),
+        Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "New York", image: "waffleandwolf", isFavorite: false),
         Restaurant(name: "Five Leaves", type: "Coffee & Tea", location: "New York", image: "fiveleaves", isFavorite: false),
         Restaurant(name: "Cafe Lore", type: "Latin American", location: "New York", image: "cafelore", isFavorite: false),
         Restaurant(name: "Confessional", type: "Spanish", location: "New York", image: "confessional", isFavorite: false),
@@ -42,6 +42,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     
+    // MARK: - View controller life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     
+    // MARK: - UITableView Diffable Data Source
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant >{
         let cellIdentifier = "datacell"
@@ -87,6 +89,7 @@ class RestaurantTableViewController: UITableViewController {
     
     
     
+    // MARK: - UITableViewDelegate Protocol
     
     //    Managing Row Selections by Implementing the Protocol
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
