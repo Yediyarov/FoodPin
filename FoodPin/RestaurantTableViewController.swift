@@ -22,6 +22,8 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurantIsFavorites = Array(repeating: false, count: 21)
     
+    let cellIdentifier = "datacell"
+    
     enum Section {
         case all
     }
@@ -42,7 +44,6 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, String >{
-        let cellIdentifier = "datacell"
 //        let cellIdentifier = "favoritecell"
 
         
@@ -50,13 +51,13 @@ class RestaurantTableViewController: UITableViewController {
             tableView: tableView,
             cellProvider: {  tableView, indexPath, restaurantName in
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! RestaurantTableViewCell
 //                downcasting
                 cell.nameLabel?.text = restaurantName
                 cell.thumbnailImageView?.image = UIImage(named: self.restaurantNames[indexPath.row])
                 cell.locationLabel?.text = self.restaurantLocations[indexPath.row]
                 cell.typeLabel?.text = self.restaurantTypes[indexPath.row]
-                cell.accessoryType = self.restaurantIsFavorites[indexPath.row] ? .checkmark : .none
+                cell.heartIconImageView.isHidden = self.restaurantIsFavorites[indexPath.row] ? false : true
                 return cell
                 
             }
@@ -107,15 +108,17 @@ class RestaurantTableViewController: UITableViewController {
         // Mark as favorite action
         
         let favoriteAction = UIAlertAction(
-            title: "Mark as favorite",
+            title: self.restaurantIsFavorites[indexPath.row] ? "Remove from favorites" : "Mark as favorite",
             style: .default,
             handler: {
                 (action:UIAlertAction!) -> Void in
                 
-                let cell = tableView.cellForRow(at: indexPath)
-                cell?.accessoryType = .checkmark
+                let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
                 
-                self.restaurantIsFavorites[indexPath.row] = true
+                cell.heartIconImageView.isHidden = self.restaurantIsFavorites[indexPath.row]
+                self.restaurantIsFavorites[indexPath.row] = self.restaurantIsFavorites[indexPath.row] ? false : true
+
+                
         })
         
         
